@@ -8,4 +8,5 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 mv composer.phar /usr/local/bin/composer
 
 # Install PHPUnit
-RUN wget -O /usr/local/bin/phpunit https://phar.phpunit.de/phpunit.phar
+RUN wget -O /usr/local/bin/phpunit https://phar.phpunit.de/phpunit.phar && \
+chmod 755 /usr/local/bin/phpunit
