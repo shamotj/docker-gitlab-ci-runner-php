@@ -1,7 +1,7 @@
 FROM gitlab/gitlab-runner:alpine
 
 # Install curl and PHP
-RUN  apk add --update curl php php-phar php-json php-openssl
+RUN  apk add --update curl php php-phar php-json php-openssl git
 
 # Install composer 
 RUN curl -sS https://getcomposer.org/installer | php && \
