@@ -1,9 +1,8 @@
-FROM gitlab/gitlab-runner:alpine
+FROM gitlab/gitlab-runner:latest
 
 # Install curl and PHP
-RUN  apk add --update curl php php-phar php-json php-openssl php-dom php-xml \
-php-pdo php-pdo_sqlite php-sqlite3 php-zip php-soap php-ctype git php-iconv \
-php-intl grep
+RUN  apt-get install -y curl php5 php5-cli php5-json php5-openssl php5-dom php5-xml \
+php5-sqlite php5-zip php5-soap git php5-intl
 
 # Install composer 
 RUN curl -sS https://getcomposer.org/installer | php && \
