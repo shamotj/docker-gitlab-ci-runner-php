@@ -2,7 +2,7 @@ FROM gitlab/gitlab-runner:latest
 
 # Install curl and PHP
 RUN  apt-get install -y curl php5 php5-cli php5-json \
-php5-sqlite git php5-intl
+php5-sqlite git php5-intl php5-xdebug
 
 # Install composer 
 RUN curl -sS https://getcomposer.org/installer | php && \
