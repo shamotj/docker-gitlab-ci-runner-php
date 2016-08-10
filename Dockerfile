@@ -1,8 +1,9 @@
 FROM gitlab/gitlab-runner:ubuntu
 
 # Install curl and PHP
-RUN  apt-get install -y curl php php-cli php-json \
-php-sqlite git php-intl php-xdebug php-curl
+RUN apt-get update
+RUN apt-get install -y curl php5 php5-cli php5-json \
+php5-sqlite git php5-intl php5-xdebug php5-curl
 
 # Install composer 
 RUN curl -sS https://getcomposer.org/installer | php && \
