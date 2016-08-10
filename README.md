@@ -2,7 +2,7 @@
 This image is based on official gitlab/gitlab-runner:latest, which is based on Ubuntu 14.04.
 
 ## 1. Pull runner image
-`git pull shamot/docker-gitlab-ci-runner-php`
+`docker pull shamot/docker-gitlab-ci-runner-php`
 
 ## 2. Run image
 `docker run -d --name gitlab-runner --restart always  
