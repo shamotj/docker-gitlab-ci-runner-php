@@ -1,4 +1,4 @@
-FROM gitlab/gitlab-runner:latest
+FROM gitlab/gitlab-runner:ubuntu
 
 # Install curl and PHP
 RUN  apt-get install -y curl php php-cli php-json \
