@@ -7,7 +7,7 @@ RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y ca-certificates wget apt-transport-https vim nano \
     curl php7.0 php7.0-cli php7.0-json php7.0-sqlite git php7.0-intl \
-    php-xdebug php7.0-curl php7.0-mbstring php-xml unzip && \
+    php-xdebug php7.0-curl php7.0-mbstring php-xml php-soap unzip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
