@@ -22,8 +22,8 @@ RUN echo "deb https://packages.gitlab.com/runner/gitlab-ci-multi-runner/ubuntu/ 
     chmod -R 700 /etc/gitlab-runner && \
     rm -rf /var/lib/apt/lists/*
 
-#ADD entrypoint /
-RUN mkdir /entrypoint && chmod +x /entrypoint
+ADD entrypoint /
+RUN chmod +x /entrypoint
 
 VOLUME ["/etc/gitlab-runner", "/home/gitlab-runner"]
 ENTRYPOINT ["/usr/bin/dumb-init", "/entrypoint"]
