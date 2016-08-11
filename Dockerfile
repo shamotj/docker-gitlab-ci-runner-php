@@ -1,7 +1,6 @@
 FROM ubuntu:16.04
 
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64 /usr/bin/dumb-init
-
 RUN chmod +x /usr/bin/dumb-init
 
 RUN apt-get update -y && \
@@ -24,7 +23,7 @@ RUN echo "deb https://packages.gitlab.com/runner/gitlab-ci-multi-runner/ubuntu/ 
     rm -rf /var/lib/apt/lists/*
 
 #ADD entrypoint /
-#RUN chmod +x /entrypoint
+RUN mkdir /entrypoint && chmod +x /entrypoint
 
 VOLUME ["/etc/gitlab-runner", "/home/gitlab-runner"]
 ENTRYPOINT ["/usr/bin/dumb-init", "/entrypoint"]
