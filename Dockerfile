@@ -23,6 +23,13 @@ RUN echo "deb https://packages.gitlab.com/runner/gitlab-ci-multi-runner/ubuntu/ 
     chmod -R 700 /etc/gitlab-runner && \
     rm -rf /var/lib/apt/lists/*
 
+#ADD entrypoint /
+#RUN chmod +x /entrypoint
+
+VOLUME ["/etc/gitlab-runner", "/home/gitlab-runner"]
+ENTRYPOINT ["/usr/bin/dumb-init", "/entrypoint"]
+CMD ["run", "--user=gitlab-runner", "--working-directory=/home/gitlab-runner"]
+
 # Install composer 
 RUN curl -sS https://getcomposer.org/installer | php && \
 mv composer.phar /usr/local/bin/composer
@@ -30,10 +37,3 @@ mv composer.phar /usr/local/bin/composer
 # Install PHPUnit
 RUN wget -O /usr/local/bin/phpunit https://phar.phpunit.de/phpunit-old.phar && \
 chmod 755 /usr/local/bin/phpunit
-
-ADD entrypoint /
-RUN chmod +x /entrypoint
-
-VOLUME ["/etc/gitlab-runner", "/home/gitlab-runner"]
-ENTRYPOINT ["/usr/bin/dumb-init", "/entrypoint"]
-CMD ["run", "--user=gitlab-runner", "--working-directory=/home/gitlab-runner"]
