@@ -1,5 +1,5 @@
 # Gitlab CI runner docker image with PHP, Composer and PHPUnit
-This image is based on official gitlab/gitlab-runner:latest, which is based on Ubuntu 14.04.
+This image is based on official gitlab/gitlab-runner:latest, which is based on Ubuntu 16.04.
 
 ## 1. Pull runner image
 `docker pull shamot/docker-gitlab-ci-runner-php:ubuntu`
