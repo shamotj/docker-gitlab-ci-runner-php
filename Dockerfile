@@ -13,14 +13,12 @@ RUN apt-get update -y && \
 
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash
 
-RUN cat > /etc/apt/preferences.d/pin-gitlab-runner.pref <<EOF \
-Explanation: Prefer GitLab provided packages over the Debian native ones \
-Package: gitlab-runner \
-Pin: origin packages.gitlab.com \
-Pin-Priority: 1001 \
-EOF
+RUN echo $'Explanation: Prefer GitLab provided packages over the Debian native ones\n\
+Package: gitlab-runner\n\
+Pin: origin packages.gitlab.com\n\
+Pin-Priority: 1001' > /etc/apt/preferences.d/pin-gitlab-runner.pref
 
-RUN echo "apt-get update -y && \
+RUN apt-get update -y && \
     apt-get install -y gitlab-runner && \
     wget -q https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-Linux-x86_64 -O /usr/bin/docker-machine && \
     chmod +x /usr/bin/docker-machine && \
