@@ -6,7 +6,7 @@ RUN chmod +x /usr/bin/dumb-init
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y ca-certificates wget apt-transport-https vim nano \
-    curl php7.0 php7.0-cli php7.0-json php7.0-sqlite git php7.0-intl \
+    curl php7.0 php7.0-cli php7.0-json php7.0-sqlite git php7.0-intl php7.0-imap \
     php-xdebug php7.0-curl php7.0-mbstring php-xml php7.0-soap unzip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
