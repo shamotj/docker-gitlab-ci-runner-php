@@ -11,10 +11,17 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN echo "deb https://packages.gitlab.com/runner/gitlab-ci-multi-runner/ubuntu/ xenial main" > /etc/apt/sources.list.d/runner_gitlab-ci-multi-runner.list && \
-    wget -q -O - https://packages.gitlab.com/gpg.key | apt-key add - && \
-    apt-get update -y && \
-    apt-get install -y gitlab-ci-multi-runner && \
+RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash
+
+RUN cat > /etc/apt/preferences.d/pin-gitlab-runner.pref <<EOF
+Explanation: Prefer GitLab provided packages over the Debian native ones \
+Package: gitlab-runner \
+Pin: origin packages.gitlab.com \
+Pin-Priority: 1001 \
+EOF
+
+RUN echo "apt-get update -y && \
+    apt-get install -y gitlab-runner && \
     wget -q https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-Linux-x86_64 -O /usr/bin/docker-machine && \
     chmod +x /usr/bin/docker-machine && \
     apt-get clean && \
