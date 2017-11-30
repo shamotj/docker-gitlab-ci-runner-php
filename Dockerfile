@@ -13,7 +13,7 @@ RUN apt-get update -y && \
 
 RUN curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash
 
-RUN cat > /etc/apt/preferences.d/pin-gitlab-runner.pref <<EOF
+RUN cat > /etc/apt/preferences.d/pin-gitlab-runner.pref <<EOF \
 Explanation: Prefer GitLab provided packages over the Debian native ones \
 Package: gitlab-runner \
 Pin: origin packages.gitlab.com \
