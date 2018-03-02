@@ -3,11 +3,14 @@ FROM ubuntu:16.04
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64 /usr/bin/dumb-init
 RUN chmod +x /usr/bin/dumb-init
 
+RUN add-apt-repository ppa:ondrej/php
+
+
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get install -y ca-certificates wget apt-transport-https vim nano \
-    curl php7.0 php7.0-cli php7.0-json php7.0-sqlite git php7.0-intl php7.0-imap \
-    php-xdebug php7.0-curl php7.0-mbstring php-xml php7.0-soap unzip && \
+    curl php7.2 php7.2-cli php7.2-json php7.2-sqlite git php7.2-intl php7.2-imap \
+    php-xdebug php7.2-curl php7.2-mbstring php-xml php7.2-soap unzip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
