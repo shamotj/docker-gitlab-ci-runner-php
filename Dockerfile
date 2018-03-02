@@ -5,7 +5,8 @@ RUN chmod +x /usr/bin/dumb-init
 
 RUN apt-get update -y && apt-get install -y software-properties-common
 RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
-RUN apt-get upgrade -y && \
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get install -y ca-certificates wget apt-transport-https vim nano \
     curl php7.2 php7.2-cli php7.2-json php7.2-sqlite git php7.2-intl php7.2-imap \
     php-xdebug php7.2-curl php7.2-mbstring php-xml php7.2-soap unzip && \
