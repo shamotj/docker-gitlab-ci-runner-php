@@ -4,7 +4,7 @@ ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_a
 RUN chmod +x /usr/bin/dumb-init
 
 RUN apt-get update -y && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:ondrej/php
+RUN LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php
 RUN apt-get upgrade -y && \
     apt-get install -y ca-certificates wget apt-transport-https vim nano \
     curl php7.2 php7.2-cli php7.2-json php7.2-sqlite git php7.2-intl php7.2-imap \
